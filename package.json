@@ -11,7 +11,7 @@
     "destroy": "node index.js destroy"
   },
   "keywords": [],
-  "author": "",
+  "author": "D. Jones",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^8.0.2",
