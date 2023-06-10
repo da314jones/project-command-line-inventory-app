@@ -1,6 +1,6 @@
 const { nanoid } = require("nanoid");
 const { faker } = require('@faker-js/faker');
-const { readJSONFile,writeJSONFile } = require('./src/helpers')
+const { readJSONFile,writeJSONFile } = require('./src/helper')
 
 const createMotionPuppet = (dataPopulation) => {
     const puppets = [];
