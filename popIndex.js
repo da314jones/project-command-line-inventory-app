@@ -17,7 +17,7 @@ const createMotionPuppet = (dataPopulation) => {
     return puppets
 } 
 
-console.log(createMotionPuppet(10))
+console.log(createMotionPuppet())
 
 
 const run = () => {
