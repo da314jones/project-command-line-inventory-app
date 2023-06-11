@@ -1,5 +1,5 @@
-const { readJSONFile, writeJSONFile } = require("./src/helpers");
-const { puppetData } = require('../data/puppet_data.json');
+const { writeJSONFile } = require("./helpers");
+const  puppetData  = require('../data/puppet_data.json');
 
 const destroyPuppetInfo = (puppetId) => {
 
@@ -14,6 +14,8 @@ const destroyPuppetInfo = (puppetId) => {
         console.log("No puppet info found.")
     }
 };
+
+destroyPuppetInfo()
 
 module.exports = {
     destroyPuppetInfo,

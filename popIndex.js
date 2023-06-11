@@ -6,7 +6,7 @@ const createMotionPuppet = (dataPopulation) => {
     const puppets = [];
     
     for (let i = 0; i < dataPopulation; i++) {
-        const puppet ={        
+        const puppet = {        
         puppetModelId: nanoid(4),
         name: `${faker.word.adverb()} ${faker.word.adjective()}`,
         puppetPriceInDollars: `$${((faker.commerce.price({ min: 10000, max: 20000 })) / 100).toFixed(2)}`,
@@ -25,7 +25,7 @@ const run = () => {
     console.log(puppetData);
 
     if (process.argv[2]) {
-        const puppetInventory = createMotionPuppet(process.argv[2]);
+        const puppetInventory = createMotionPuppet(Number(process.argv[2]));
         puppetData.push(...puppetInventory);
         console.log(puppetData);
     }
