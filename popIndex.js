@@ -1,6 +1,6 @@
 const { nanoid } = require("nanoid");
 const { faker } = require('@faker-js/faker');
-const { readJSONFile,writeJSONFile } = require('./src/helper')
+const { readJSONFile,writeJSONFile } = require('./src/helpers')
 
 const createMotionPuppet = (dataPopulation) => {
     const puppets = [];
@@ -8,7 +8,7 @@ const createMotionPuppet = (dataPopulation) => {
     for (let i = 0; i < dataPopulation; i++) {
         const puppet ={        
         puppetModelId: nanoid(4),
-        puppetName: `${faker.word.adverb()} ${faker.word.adjective()}`,
+        name: `${faker.word.adverb()} ${faker.word.adjective()}`,
         puppetPriceInDollars: `$${((faker.commerce.price({ min: 10000, max: 20000 })) / 100).toFixed(2)}`,
         inStock: faker.datatype.boolean(0.9)
     }
@@ -38,7 +38,8 @@ const run = () => {
 run()
 
 module.exports  = {
-    createMotionPuppet
+    createMotionPuppet,
+    
 }
 // name
 // priceInCents
