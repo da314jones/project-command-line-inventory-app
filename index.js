@@ -11,6 +11,9 @@ const run = () => {
     const action = process.argv[2];
     const puppet = process.argv[3];
     const puppets = readJSONFile('./data', 'puppet_data.json')
+    const firstPuppet = puppets[0];
+    const keys = Object.keys(firstPuppet)
+    console.log(keys)
     let writeToFile = false;
     let updatedPuppets = [];
 
