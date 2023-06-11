@@ -1,7 +1,7 @@
 const { readJSONFile, writeJSONFile } = require('./helpers');
 
 const puppetUpdate = (puppetId, puppetName, puppetPrice) => {
-    const puppetData = readJSONFile('../data/puppet_data.json');
+    const { puppetData } = require('../data/puppet_data.json');
 
     const puppetIndex = puppetData.findIndex(
         (puppet) => puppet.puppetModelId === puppetId

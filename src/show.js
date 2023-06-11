@@ -1,9 +1,9 @@
-const { readJSONFile, writeJSONFile } = require("./src/helpers");
 const { readJSONFile } = require('./helpers');
+const { puppetData } = require('../data/puppet_data.json');
 
- const showPuppetInfo = () => {
-    const puppyData = readJSONFile('../data/puppet_data.json');
-    console.log("Puppet Info:", puppetData)
+ const showPuppetInfo = (puppets, puppetModelId) => {
+   const foundPuppet = puppetData.find((puppets) => puppets.Id === puppetModelId);
+   return foundPuppet.id + " " + foundPuppet.name + " price: " + foundPuppet.puppetPriceInDollars  
  };
 
  showPuppetInfo()

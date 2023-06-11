@@ -1,8 +1,7 @@
-const { readJSONFile, writeJSONFile } = require('./helpers');
+const { readJSONFile, writeJSONFile } = require("./src/helpers");
+const { puppetData } = require('../data/puppet_data.json');
 
 const destroyPuppetInfo = (puppetId) => {
-const { readJSONFile, writeJSONFile } = require("./src/helpers");
-const puppetData = readJSONFile('../data/puppet_data.json');
 
     const filterPuppets = puppetData.filter((puppet) => puppet.puppetModelId !== puppetId
     );

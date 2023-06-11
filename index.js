@@ -1,9 +1,10 @@
 const { 
     createNewData,
     destroyPuppetInfo,
+    puppetUpdate,
     showPuppetInfo,
     puppetIndices,
-    puppetUpdate,
+    totalPrice,
     } = require("./popIndex");
 
 const run = () => {
@@ -14,24 +15,29 @@ const run = () => {
     let updatedPuppets = [];
 
     switch (action) {
+        case "createNewData":
+            console.log("Create is firing!")
+            updatedPuppets = createNewData(puppets, puppet)
+            writeToFile = tre;
+            break;
+        case "show":
+            const
+        case "destroy":
+            updatedPuppets = destroyPuppetInfo(puppets, puppet);
+            writeToFile = true;
+            break;
+        case "update":
+            console.log(puppets, " $$$$$$ ")
+            updatedPuppets = puppetUpdate(puppets, puppet, process.argv[4]);
+            writeToFile = true;
+            break;
         case "index":
             const allPuppets = puppetIndices(puppets)
             console.log(allPuppets);
             break;
-        case "createNewData":
-            console.log("Create is firing!")
-            updatedPuppets = create(puppets, puppet)
-            writeToFile = tre;
+        case "total":
+            console.log(totalPrice(puppets))
             break;
-        case "show":
-            console.log(puppets, " $$$$$$ ")
-            updatedPuppets = update(puppets, puppet, process.argv[4]);
-            writeToFile = true;
-            break;
-        case "destroy":
-            updatedPuppets = destroy(puppets, puppet);
-            writeToFile = true;
-            break;
-        case
+
     }
 }
