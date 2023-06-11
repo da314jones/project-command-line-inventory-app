@@ -16,5 +16,5 @@ const createNewData = (puppetName, puppetPrice) => {
 console.log("New puppet created.")
 
 module.exports = {
-    createNewData
+    createNewData,
 }

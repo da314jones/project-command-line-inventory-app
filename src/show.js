@@ -1,3 +1,4 @@
+const { readJSONFile, writeJSONFile } = require("./src/helpers");
 const { readJSONFile } = require('./helpers');
 
  const showPuppetInfo = () => {
@@ -8,5 +9,5 @@ const { readJSONFile } = require('./helpers');
  showPuppetInfo()
 
  module.exports = {
-    showPuppetInfo
+    showPuppetInfo,
  }

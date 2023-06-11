@@ -1,4 +1,7 @@
-const { createMotionPuppet } = require("./popIndex");
-const { readJSONFile, writeJSONFile } = require('./helpers');
+const { 
+    createNewData,
+    destroyPuppetInfo,
+    showPuppetInfo,
+    puppetUpdate,
+    } = require("./popIndex");
 
-let puppets
