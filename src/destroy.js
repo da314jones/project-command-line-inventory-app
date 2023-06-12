@@ -7,7 +7,7 @@ const destroyPuppetInfo = (puppetId) => {
     );
 
     if (filterPuppets.length !== puppetData.length) {
-        writeJSONFile('../data/puppet_dat.json', filterPuppets);
+        writeJSONFile('../data/puppet_data.json', filterPuppets);
 
         console.log("Puppet deleted.");
     } else {

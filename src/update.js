@@ -1,17 +1,17 @@
 const { readJSONFile, writeJSONFile } = require('./helpers');
 
 const puppetUpdate = (puppetId, puppetName, puppetPrice) => {
-    const puppetData = require('../data/puppet_data.json');
+    const puppets = readJSONFile('../data/puppet_data.json');
 
-    const puppetIndex = puppetData.findIndex(
+    const puppetIndex = puppets.findIndex(
         (puppet) => puppet.puppetModelId === puppetId
     );
 
     if (puppetIndex !== -1) {
-        puppetData[puppetIndex].productName = puppetName;
-        puppetData[puppetIndex].puppetPriceInCents = puppetPrice;
+        puppets[puppetIndex].productName = puppetName;
+        puppets[puppetIndex].puppetPriceInCents = puppetPrice;
 
-        writeJSONFile('..data/puppet_data.json', puppetData);
+        writeJSONFile('..data/puppet_data.json', puppets);
         
         console.log("New puppet info updated.");
     } else {
