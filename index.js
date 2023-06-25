@@ -40,8 +40,8 @@ const run = () => {
 
     case 'total':
       const puppetIds = process.argv.slice(3);
-      const totalValue = totalPrice(puppetIds);
-      console.log(`Total value of selected puppets: $${totalValue.toFixed(2)}`);
+      const totalCost = totalPrice(puppetIds);
+      console.log(`Total value of selected puppets: $${totalCost.toFixed(2)}`);
       break;
 
     default:

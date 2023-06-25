@@ -1,5 +1,4 @@
 const fs = require("node:fs");
-
 const { readFileSync, writeFileSync } = fs;
 
 function readJSONFile(path, fileName) {

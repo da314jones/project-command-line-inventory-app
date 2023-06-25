@@ -13,8 +13,8 @@ const motionPuppetIndices = (puppetKey) => {
   }
 };
 
-if (process.argv[2]) {
-  const puppetKey = process.argv[2];
+if (process.argv[3]) {
+  const puppetKey = process.argv[3];
   motionPuppetIndices(puppetKey);
 } else {
   console.log("Please enter the puppet ID/name.");

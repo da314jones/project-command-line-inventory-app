@@ -21,8 +21,8 @@ const run = () => {
   const puppetData = readJSONFile("./data", "puppet_data.json");
   console.log(puppetData);
 
-  if (process.argv[2]) {
-    const puppetInventory = createMotionPuppet(Number(process.argv[2]));
+  if (process.argv[3]) {
+    const puppetInventory = createMotionPuppet(Number(process.argv[3]));
     puppetData.push(...puppetInventory);
     console.log(puppetData);
   } else {
