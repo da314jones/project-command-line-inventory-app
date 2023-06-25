@@ -1,15 +1,9 @@
-const { createMotionPuppet } = require("./src/create")
-const { motionPuppetIndices } = require("./src/indices")
-const { showMotionPuppet } = require("./src/show")
-const {  } = require("./src/show")
-const { destroyMotionPuppet } = require("./src/destroy")
-const { totalPrice } = require("./src/total")
-const { helpers } = require("./src/helpers")
-const {
-    readJSONFile,
-    writeJSONFile
-} = require("./src/helpers");
-
+const { createMotionPuppet } = require("./src/create");
+const { motionPuppetIndices } = require("./src/indices");
+const { showMotionPuppet } = require("./src/show");
+const { destroyMotionPuppet } = require("./src/destroy");
+const { updateMotionPuppet } = require("./src/update");
+const {  } = require("./src/total");
 
 const run = () => {
   const action = process.argv[2];
@@ -27,8 +21,8 @@ const run = () => {
       break;
 
     case 'indices':
-        const puppetKeyToIndex = process.argv[3];
-        motionPuppetIndices(puppetKeyToIndex);
+      const puppetKeyToIndex = process.argv[3];
+      motionPuppetIndices(puppetKeyToIndex);
       break;
 
     case 'show':
@@ -36,8 +30,16 @@ const run = () => {
       showMotionPuppet(puppetIdToShow);
       break;
 
+    case 'update':
+      const puppetIdToUpdate = process.argv[3];
+      const newPuppetName = process.argv[4];
+      const newPuppetPrice = process.argv[5];
+      const newInStock = process.argv[6];
+      updateMotionPuppet(puppetIdToUpdate, newPuppetName, newPuppetPrice, newInStock);
+      break;
+
     default:
-      console.log('Please provide an inventory action (create, destroy, index, show).');
+      console.log('Please provide a valid inventory action (create, destroy, indices, show, update).');
       break;
   }
 };
