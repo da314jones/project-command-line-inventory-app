@@ -3,7 +3,7 @@ const { motionPuppetIndices } = require("./src/indices");
 const { showMotionPuppet } = require("./src/show");
 const { destroyMotionPuppet } = require("./src/destroy");
 const { updateMotionPuppet } = require("./src/update");
-const {  } = require("./src/total");
+const { totalPrice } = require("./src/total");
 
 const run = () => {
   const action = process.argv[2];
@@ -38,8 +38,14 @@ const run = () => {
       updateMotionPuppet(puppetIdToUpdate, newPuppetName, newPuppetPrice, newInStock);
       break;
 
+    case 'total':
+      const puppetIds = process.argv.slice(3);
+      const totalValue = totalPrice(puppetIds);
+      console.log(`Total value of selected puppets: $${totalValue.toFixed(2)}`);
+      break;
+
     default:
-      console.log('Please provide a valid inventory action (create, destroy, indices, show, update).');
+      console.log('Please enter a valid inventory action (create, destroy, indices, show, update, total).');
       break;
   }
 };

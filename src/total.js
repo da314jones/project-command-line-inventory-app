@@ -1,17 +1,22 @@
-const { readJSONFile } = require('./helpers');
+const puppetData = require('../data/puppet_data.json');
 
-const totalPrice = (puppetNames) => {
-  const puppetData = readJSONFile("../data", "puppet_data.json");
+const totalPrice = (puppetIdentifiers) => {
+  let totalCost = 0;
 
-  let total = 0;
+  puppetIdentifiers.forEach((identifier) => {
+    const puppet = puppetData.find(
+      (puppet) =>
+        puppet.puppetModelId === identifier || puppet.name.toLowerCase() === identifier.toLowerCase()
+    );
 
-  for (const puppet of puppetData) {
-    if (puppetNames.includes(puppet.name)) {
-      total += parseFloat(puppet.puppetPriceInDollars);
+    if (puppet) {
+      if (puppet.puppetPriceInDollars && typeof puppet.puppetPriceInDollars === 'number') {
+        totalCost += puppet.puppetPriceInDollars;
+      }
     }
-  }
+  });
 
-  return total.toFixed(2);
+  return totalCost;
 };
 
 module.exports = {

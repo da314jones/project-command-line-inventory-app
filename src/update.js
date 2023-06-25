@@ -28,12 +28,3 @@ module.exports = {
   updateMotionPuppet
 };
 
-// node index.js update <puppetId> <puppetModelId> <inStock>
-
-// node index.js update <puppetId> <puppetModelId> <inStock> <puppetPriceInDollars>
-
-// node index.js update V9kq NewModelID true
-
-// node index.js update V9kq NewModelID true 100
-
-
