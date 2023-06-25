@@ -1,26 +1,22 @@
-const { readJSONFile, writeJSONFile } = require('./helpers');
+const { writeJSONFile, readJSONFile } = require('./helpers');
 
 const puppetUpdate = (puppetId, puppetName, puppetPrice) => {
-    const puppets = readJSONFile('../data/puppet_data.json');
+  const puppetData = readJSONFile("../data", "puppet_data.json");
 
-    const puppetIndex = puppets.findIndex(
-        (puppet) => puppet.puppetModelId === puppetId
-    );
+  const puppetIndex = puppetData.findIndex((puppet) => puppet.puppetModelId === puppetId);
 
-    if (puppetIndex !== -1) {
-        puppets[puppetIndex].productName = puppetName;
-        puppets[puppetIndex].puppetPriceInCents = puppetPrice;
+  if (puppetIndex !== -1) {
+    puppetData[puppetIndex].name = puppetName;
+    puppetData[puppetIndex].puppetPriceInDollars = puppetPrice;
 
-        writeJSONFile('..data/puppet_data.json', puppets);
-        
-        console.log("New puppet info updated.");
-    } else {
-        console.log("No puppet info found.");
-    }
+    writeJSONFile("../data", "puppet_data.json", puppetData);
+
+    console.log("Puppet info updated.");
+  } else {
+    console.log("No puppet with this ID found.");
+  }
 };
 
-puppetUpdate()
-
 module.exports = {
-    puppetUpdate
-}
+  puppetUpdate
+};

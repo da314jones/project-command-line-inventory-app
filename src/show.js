@@ -1,13 +1,16 @@
 const { readJSONFile } = require('./helpers');
 
- const showPuppetInfo = (puppetModelId) => {
-  const puppets = readJSONFile('./data/', 'puppet_data.json');
-   const foundPuppet = puppets.find((puppet) => puppet.id === puppetModelId);
-   return foundPuppet;
- };
+const showPuppetInfo = (puppetModelId) => {
+  const puppetData = readJSONFile("../data", "puppet_data.json");
 
- showPuppetInfo()
+  const foundPuppet = puppetData.find((puppet) => puppet.puppetModelId === puppetModelId);
+  if (foundPuppet) {
+    return `${foundPuppet.puppetModelId} ${foundPuppet.name} price: ${foundPuppet.puppetPriceInDollars}`;
+  } else {
+    return 'Puppet not found.';
+  }
+};
 
- module.exports = {
-    showPuppetInfo,
- }
+module.exports = {
+  showPuppetInfo,
+};
