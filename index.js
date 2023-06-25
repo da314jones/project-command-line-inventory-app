@@ -1,8 +1,8 @@
 const { createMotionPuppet } = require("./src/create")
-const { index } = require("./src/puppet_indices")
-const { show } = require("./src/show")
-const { destroy } = require("./src/show")
-const { update } = require("./src/destroy")
+const { motionPuppetIndices } = require("./src/indices")
+const { showMotionPuppet } = require("./src/show")
+const {  } = require("./src/show")
+const { destroyMotionPuppet } = require("./src/destroy")
 const { totalPrice } = require("./src/total")
 const { helpers } = require("./src/helpers")
 const {
@@ -12,43 +12,34 @@ const {
 
 
 const run = () => {
-    const action = process.argv[2];
-    const puppetName = process.argv[3];
-    let puppets = readJSONFile("./data", "puppet_data.json");
-    let writeToFile = false;
-    let updatedPuppets = [];
+  const action = process.argv[2];
 
-    switch (action) {
-        case "index":
-            const allPuppets = index(puppets);
-            console.log(allPuppets);
-            break;
-        case "create":
-            const puppetName = process.argv[3];
-            const puppetPrice = process.argv[4];
-            createMotionPuppet(puppetName, puppetPrice);
-            break;
-        case "show":
-            const foundPuppet = show(puppets, puppetName);
-            console.log(foundPuppet);
-            break;
-        case "update":
-            console.log(puppetName, " %%%%%%% ");
-            updatedPuppets = update(puppets, puppetName, process.argv[4]);
-            writeToFile = true;
-            break;
-        case "destroy":
-            updatedPuppets = destroy(puppets, puppetName);
-            writeToFile = true;
-            break;
-            default:
-            console.log("Hey, there was an error.");
-        }
-        
-        if (writeToFile) {
-            console.log("New data detected - updating");
-            writeJSONFile("./data", "puppet_data.json", updatedPuppets);
-        }
+  switch (action) {
+    case 'create':
+      const puppetName = process.argv[3];
+      const puppetPrice = process.argv[4];
+      createMotionPuppet(puppetName, puppetPrice);
+      break;
+
+    case 'destroy':
+      const puppetId = process.argv[3];
+      destroyMotionPuppet(puppetId);
+      break;
+
+    case 'indices':
+        const puppetKeyToIndex = process.argv[3];
+        motionPuppetIndices(puppetKeyToIndex);
+      break;
+
+    case 'show':
+      const puppetIdToShow = process.argv[3];
+      showMotionPuppet(puppetIdToShow);
+      break;
+
+    default:
+      console.log('Please provide an inventory action (create, destroy, index, show).');
+      break;
+  }
 };
-        
-        run();
+
+run();

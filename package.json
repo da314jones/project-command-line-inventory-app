@@ -9,8 +9,8 @@
     "show": "node index.js show",
     "update": "node index.js update",
     "destroy": "node index.js destroy",
-    "total": "node total.js total",
-    "index": "node index.js index"
+    "total": "node index.js total",
+    "index": "node index.js indices"
   },
   "keywords": [],
   "author": "D. Jones",

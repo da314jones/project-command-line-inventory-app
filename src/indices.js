@@ -1,15 +1,13 @@
-const { readJSONFile } = require('./helpers');
 const puppetData = require('../data/puppet_data.json');
 
-const showMotionPuppet = (puppetKey) => {
-  const puppet = puppetData.find(
+const motionPuppetIndices = (puppetKey) => {
+  const puppetIndex = puppetData.findIndex(
     (puppet) =>
       puppet.puppetModelId === puppetKey || puppet.name === puppetKey
   );
 
-  if (puppet) {
-    console.log(`Puppet Details:`);
-    console.log(puppet);
+  if (puppetIndex !== -1) {
+    console.log(`Puppet Index: ${puppetIndex}`);
   } else {
     console.log(`Puppet with ID/name '${puppetKey}' not found.`);
   }
@@ -17,11 +15,11 @@ const showMotionPuppet = (puppetKey) => {
 
 if (process.argv[2]) {
   const puppetKey = process.argv[2];
-  showMotionPuppet(puppetKey);
+  motionPuppetIndices(puppetKey);
 } else {
   console.log("Please enter the puppet ID/name.");
 }
 
 module.exports = {
-  showMotionPuppet
+  motionPuppetIndices
 };
