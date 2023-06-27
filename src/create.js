@@ -19,7 +19,7 @@ const puppetName = process.argv[2];
 const puppetPrice = process.argv[3];
 createMotionPuppet(puppetName, puppetPrice);
 } else {
-console.log("Please enter a puppetName and puppetPrice.");
+console.log('Please enter a puppetName and puppetPrice.');
 }
 
 module.exports = {

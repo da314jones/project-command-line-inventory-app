@@ -18,7 +18,7 @@ const createMotionPuppet = (dataPopulation) => {
 };
 
 const run = () => {
-  const puppetData = readJSONFile("./data", "puppet_data.json");
+  const puppetData = readJSONFile('./data', 'puppet_data.json');
   console.log(puppetData);
 
   if (process.argv[3]) {
@@ -26,7 +26,7 @@ const run = () => {
     puppetData.push(...puppetInventory);
     console.log(puppetData);
   } else {
-    console.log("Please provide a puppet parameter.");
+    console.log('Please provide a puppet inventory amount.');
   }
   writeJSONFile('./data', 'puppet_data.json', puppetData);
 };

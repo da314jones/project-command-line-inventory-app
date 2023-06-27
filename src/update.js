@@ -21,10 +21,9 @@ if (process.argv[3]) {
 
   updateMotionPuppet(puppetId, inStock);
 } else {
-  console.log("Please provide the puppet ID and inStock value as command-line arguments.");
+  console.log('Please provide the puppet ID and inStock value as command-line arguments.');
 }
 
 module.exports = {
   updateMotionPuppet
 };
-

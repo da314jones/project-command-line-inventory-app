@@ -14,22 +14,18 @@ const run = () => {
       const puppetPrice = process.argv[4];
       createMotionPuppet(puppetName, puppetPrice);
       break;
-
     case 'destroy':
       const puppetId = process.argv[3];
       destroyMotionPuppet(puppetId);
       break;
-
     case 'indices':
       const puppetKeyToIndex = process.argv[3];
       motionPuppetIndices(puppetKeyToIndex);
       break;
-
     case 'show':
       const puppetIdToShow = process.argv[3];
       showMotionPuppet(puppetIdToShow);
       break;
-
     case 'update':
       const puppetIdToUpdate = process.argv[3];
       const newPuppetName = process.argv[4];
@@ -37,15 +33,13 @@ const run = () => {
       const newInStock = process.argv[6];
       updateMotionPuppet(puppetIdToUpdate, newPuppetName, newPuppetPrice, newInStock);
       break;
-
     case 'total':
       const puppetIds = process.argv.slice(3);
       const totalCost = totalPrice(puppetIds);
       console.log(`Total value of selected puppets: $${totalCost.toFixed(2)}`);
       break;
-
     default:
-      console.log('Please enter a valid inventory action (create, destroy, indices, show, update, total).');
+      console.log('Please enter a valid inventory action: (create, destroy, indices, show, update, total).');
       break;
   }
 };

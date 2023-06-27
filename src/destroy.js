@@ -23,7 +23,7 @@ if (process.argv[2]) {
     const puppetIdentifier = process.argv[2];
     destroyMotionPuppet(puppetIdentifier);
 } else {
-    console.log("Please enter the puppet ID/name.");
+    console.log('Please enter the puppet ID/name.');
 }
 
 module.exports = {
